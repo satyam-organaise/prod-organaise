@@ -48,7 +48,7 @@ const Folder = ({ userId }) => {
     const deleteFolder = async (folderData) => {
         const confarmDelete = window.confirm("R u sure do u want to delte this folder.");
         if (confarmDelete) {
-            const response = await axios.delete('https://devorganaise.com/api/deleteFolder', { data: { folderId: folderData._id, userId: folderData.userId } }, {
+            const response = await axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/deleteFolder`, { data: { folderId: folderData._id, userId: folderData.userId } }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -118,7 +118,7 @@ const Folder = ({ userId }) => {
                 userId: userId
             }
 
-            const response = await axios.post('https://devorganaise.com/api/createFolder', folderData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/createFolder`, folderData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -137,7 +137,7 @@ const Folder = ({ userId }) => {
     /////////////// get the folder data here  /////
     const getFoldersData = async (userId) => {
         const userID = { userId: userId }
-        const response = await axios.post('https://devorganaise.com/api/getFolders', userID, {
+        const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/getFolders`, userID, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -155,7 +155,7 @@ const Folder = ({ userId }) => {
     /////// Get files of this user
     const getFilesOfUser = async (userId) => {
         const userID = { userId: userId }
-        const response = await axios.post('https://devorganaise.com/api/getfiles', userID, {
+        const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/getfiles`, userID, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -174,7 +174,7 @@ const Folder = ({ userId }) => {
     ////// Add file in folder
     const addFileInFolder = async (fileId) => {
         const addFileInFolderObject = { userId: userId, folderId: selectedFolder, fileId: fileId }
-        const response = await axios.post('https://devorganaise.com/api/addFileInFolder', addFileInFolderObject, {
+        const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/addFileInFolder`, addFileInFolderObject, {
             headers: {
                 'Content-Type': 'application/json'
             }

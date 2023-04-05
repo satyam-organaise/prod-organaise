@@ -56,7 +56,7 @@ const FileUploadModal = ({ handleClose, open, setJsonData, handleClickOpen, user
             formData.append('fileData', fileData);
             formData.append('userId', UserId);
             formData.append('fileSize', fileData.size);
-            const response = await axios.post('https://devorganaise.com/api/upload', formData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

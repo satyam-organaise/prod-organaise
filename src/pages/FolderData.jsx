@@ -49,7 +49,7 @@ const FolderData = () => {
         const UserId = JSON.parse(localStorage.getItem("UserData")).sub;
         const confarmDelete = window.confirm("Are you sure do u want to delete this folder.");
         if (confarmDelete) {
-            const response = await axios.delete('https://devorganaise.com/api/deleteFolder',
+            const response = await axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/deleteFolder`,
                 { data: { folderId: folderData, userId: UserId } }, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -89,7 +89,7 @@ const FolderData = () => {
     const getFoldersData = async (userId) => {
         const userID = { userId: userId }
         try {
-            const response = await axios.post('https://devorganaise.com/api/getFolders', userID, {
+            const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/getFolders`, userID, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

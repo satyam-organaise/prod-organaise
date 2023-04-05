@@ -156,7 +156,7 @@ const ContentModels = ({
                 userId: UserId
             }
 
-            const response = await axios.post('https://devorganaise.com/api/createFolder', folderData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/createFolder`, folderData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -183,7 +183,7 @@ const ContentModels = ({
     const [userFiles, setUserFiles] = useState([]);
     const getFilesOfUser = async (userId) => {
         const userID = { userId: userId }
-        const response = await axios.post('https://devorganaise.com/api/getfiles', userID, {
+        const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/getfiles`, userID, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -257,7 +257,7 @@ const ContentModels = ({
     const addIngFileInFolder = async (userId, fileId, selectedFolder) => {
 
         const addFileInFolderObject = { userId: userId, folderId: selectedFolder, fileId: fileId }
-        const response = await axios.post('https://devorganaise.com/api/addFileInFolder', addFileInFolderObject, {
+        const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/addFileInFolder`, addFileInFolderObject, {
             headers: {
                 'Content-Type': 'application/json'
             }

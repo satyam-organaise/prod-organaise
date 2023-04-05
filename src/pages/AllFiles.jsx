@@ -40,7 +40,7 @@ const AllFiles = () => {
     /////// Get files of this user
     const getFilesOfUser = async (userId) => {
         const userID = { userId: userId }
-        const response = await axios.post('https://devorganaise.com/api/getfiles', userID, {
+        const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/getfiles`, userID, {
             headers: {
                 'Content-Type': 'application/json'
             }
