@@ -54,7 +54,7 @@ const NewMessageGrid = ({ selectedChannel }) => {
     ///////// UseEffect for socket io
     useEffect(() => {
         //////// Here we are check the login user status
-        socket = io(`${ENDPOINT}`, {
+        socket = io(`${ENDPOINT}/api`, {
             debug: true
         });
         socket.on("connect_error", (err) => {
