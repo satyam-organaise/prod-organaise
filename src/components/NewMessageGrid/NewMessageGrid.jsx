@@ -20,7 +20,7 @@ import { getSender } from '../../utils/chatLogic';
 import io from "socket.io-client";
 
 
-const ENDPOINT = "https://devorganaise.com";
+const ENDPOINT =  process.env.REACT_APP_API_ENDPOINT;
 //"https://devorganaise.com/api"
 //"http://13.57.89.208:8000"
 //"http://localhost:8000"
